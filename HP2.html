@@ -41,6 +41,7 @@ section i:nth-child(even){
 <body onload="startGame()">
 <script>
 
+
 var myGamePiece;
 var myObstacles = [];
 var myScore;
@@ -48,7 +49,7 @@ var reset;
 
 function startGame() {
     myGamePiece = new component(30, 30, "red", 10, 120);
-    myGamePiece.gravity = 0.8;
+    myGamePiece.gravity = 0.1;
     myScore = new component("30px", "Consolas", "black", 280, 40, "text");
     myGameArea.start();
 }
@@ -159,9 +160,9 @@ function everyinterval(n) {
 function accelerate(n) {
     myGamePiece.gravity = n;
 }
-document.getElementById('accelerate').addEventListener("touchstart")
+
 </script>
 <br>
-<button style="border-radius: 30px; padding: 10px; text-align: center; margin: 0 0 180px 180px; cursor: pointer;" onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.8)">CLICK ME</button>
+<button style="border-radius: 30px; padding: 10px; text-align: center; margin: 0 0 180px 180px; cursor: pointer;" onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.1)">CLICK ME</button>
 </body>
 </html>
