@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head onclick="login()">
+	<meta charset="utf-8"> 
+	<title> LOGIN FORM </title>
+	<link rel="stylesheet" type="text/css" href="demo2.css">
+</head>
+<body>
+	<div class="login">
+	<div>
+	
+	<form class="box" action="demo3.html" method="post" id="form" name="myForm">
+		<h1> Log in </h1>
+		<input type="text" name="name" placeholder="Username" id="username" autocomplete="off" required>
+		<div>
+		<input type="password" name="password" placeholder="Password" id="password" required>
+	</form>
+	</div>
+		
+			
+			<button formaction="demo3.html" onclick="login()" type="submit" name="submit">Log In</button>
+			</div>
+			<nav>
+>
+
+			<script type="text/javascript">
+				function login() {
+					var username = document.getElementById('username').value;
+					var password = document.getElementById('password').value;
+					if (username.length > 0 && password.length > 6) {
+						
+						location.assign("file:///C:/Users/bpbpb/OneDrive/M%C3%A1y%20t%C3%ADnh/L%E1%BA%ADp%20tr%C3%ACnh%20web/demo3.html")
+						
+					}
+					else
+					{
+		
+						
+						window.alert("Please fill out characters ( Username more than 0 character, Password more than 6 characters ) ");
+					}
+					
+				}
+
+
+				
+			</script>
+			<style type="text/css">
+				body{
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	background: #34495e;
+}
+
+.login{
+	width: 300px;
+	padding: 40px;
+	position: absolute;
+	top: 50%;
+	left:  50%;
+	transform: translate(-50%,-50%);
+	background: #191919;
+	text-align: center;
+
+}
+.box h1{
+	color: white;
+	text-transform: uppercase;
+	font-weight: 500
+
+}
+.box input[type = "text"],.box input[type = "password"]{
+	border: 0;
+	background: none;
+	display: block;
+	margin: 20px auto;
+	text-align: center;
+	border: 2px solid #3498db;
+	padding: 14px 10px;
+	width: 200px;
+	outline: none;
+	color: white;
+	border-radius: 24px;
+	transition: 0.25s;
+
+}
+.box input[type = "text"]:focus .box input[type = "password"]{
+	width: 280px;
+	border-color: #2ecc71;
+
+}
+ button[type = "submit"]{
+	border: 0;
+	background: none;
+	display: block;
+	margin: 20px auto;
+	text-align: center;
+	border: 2px solid #2ecc71;
+	padding: 14px 40px;
+	outline: none;
+	color: white;
+	border-radius: 24px;
+	transition: 0.25s;
+	cursor: pointer;
+	bottom: 50px;
+}
+button[type = "submit"]:hover {
+	background: #2ecc71;
+	bottom: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+			</style>
+</body>
+</html>
