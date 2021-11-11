@@ -34,6 +34,58 @@
 			</div>
 		</div>
 	</div>
+	<style type="text/css">
+		*{
+	margin:0;
+	padding: 0;
+	font-family: "Openn Sans",sans-serif;
+
+}
+body{
+	background-color: #444;
+	min-height: 100vh;
+	align-items: center;
+	justify-content: space-between;
+}
+.blog-post{
+	width: min(1200px, 100%);
+	padding: 20px;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	cursor: pointer;
+}
+.post{
+	width: calc(33% - 10px);
+	overflow: hidden;
+}
+.post-img{
+	width: 100%;
+	border-radius: 6px;
+	transition: .3s linear; 
+
+}
+.post-content{
+	background-color: #ffffffdd;
+	margin: 0 20px;
+	padding: 30px;
+	border-radius: 6px;
+	transform: translateY(-60px);
+	transition: .3s linear;
+}
+.post-content h3{
+	font-size: 16px;
+	margin-bottom: 10px;
+
+}
+.date{
+	font-size:  15px;
+	font-style: italic;
+	color: #e76f67;
+}
+
+
+	</style>
 
 </body>
 </html>
