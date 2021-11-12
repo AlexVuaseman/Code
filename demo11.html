@@ -27,6 +27,9 @@
 		const btn = document.querySelector('.addTask > button');
 
 		btn.addEventListener('click', addList);
+		input.addEventListener('keyup', (e) => {
+			(e.keyCode === 13 ? addList(e) : null)
+		});
 
 		function addList(e) {
 			const notCompleted = document.querySelector('.notCompleted');
@@ -121,7 +124,7 @@
 			counter-reset: my-counter;
 		}
 		ol li{
-			margin: 5ppx 0;
+			margin: 5px 0;
 			padding: 18px;
 			width: 100%;
 			background: #e96969bb;
