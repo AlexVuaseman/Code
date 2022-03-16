@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" onclick="jump()">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="game">
+        <div id="character"></div>
+        <div id="block"></div>
+    </div>
+
+    <script type="text/javascript">
+        var character = document.getElementById("character");
+        var block = document.getElementById("block");
+        
+        function jump() {
+            if (character.classList != "animate") {
+                character.classList.add("animate");
+            }
+            // character.classList.add("animate");
+            setTimeout(function() {
+                character.classList.remove("animate");
+            }, 500);
+        }
+
+        window.addEventListener("keydown", jump, false);
+
+        var checkDead = setInterval(function() {
+            var characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
+            var blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
+            if(blockLeft < 20 && blockLeft > 0 && characterTop >= 130) {
+                
+                alert("Game Over");
+            }
+        }, 10);
+    </script>
+</body>
+
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #game {
+            width: 500px;
+            height: 200px;
+            border: 1px solid black;
+            overflow: hidden;
+            margin: 0 auto;
+            margin-top: 5%;
+        }
+
+        #character {
+            width: 20px;
+            height: 50px;
+            background-color: red;
+            top: 150px;
+            position: relative;
+            /* overflow: hidden;   */
+        }
+
+        .animate {
+            animation: jump 1s linear;
+        }
+
+        @keyframes jump {
+            0% {
+                top: 150px;
+            }
+
+            30% {
+                top: 100px;
+            }
+
+            /* 70% {
+                top: 100px;
+            } */
+
+            100% {
+                top: 150px;
+            }
+        }
+
+        #block {
+            width: 20px;
+            height: 20px;
+            background-color: blue;
+            position: relative;
+            top: 130px;
+            left: 480px;
+            animation: animation 3s infinite;
+        }
+
+        @keyframes animation {
+            0% {
+                left: 480px;
+            }
+
+            100% {
+                left: -40px;
+            }
+        }
+
+
+        @media (max-width:400px) {
+            #game {
+                width: 300px;
+            }
+        }
+
+        @media (min-width: 402px) and (max-width: 786px) {
+            #game {
+                width: 350px;
+            }
+        }
+    </style>
+</html>
