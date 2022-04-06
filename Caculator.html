@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caculator</title>
+</head>
+<body>
+    <form action="" name="calc" class="caculator">
+        <input type="text" class="value" name="txt" readonly="">
+        <span class="num function" onclick="document.calc.txt.value =''"> Xóa</span>
+        <span class="num function" onclick="document.calc.txt.value +=' /'"> :</span>
+        <span class="num function" onclick="document.calc.txt.value +=' *'"> x</span>
+        <span class="num function" onclick="document.calc.txt.value +=' -'"> -</span>
+        <span class="num function" onclick="document.calc.txt.value +=' +'"> +</span>
+        <span class="num" onclick="document.calc.txt.value +=' 1'"> 1</span>
+        <span class="num" onclick="document.calc.txt.value +=' 2'"> 2</span>
+        <span class="num" onclick="document.calc.txt.value += ' 3'"> 3</span>
+        <span class="num" onclick="document.calc.txt.value +=' 4'"> 4</span>
+        <span class="num" onclick="document.calc.txt.value += ' 5'"> 5</span>
+        <span class="num" onclick="document.calc.txt.value += ' 6'"> 6</span>
+        <span class="num" onclick="document.calc.txt.value += ' 7'"> 7</span>
+        <span class="num" onclick="document.calc.txt.value += ' 8'"> 8</span>
+        <span class="num" onclick="document.calc.txt.value += ' 9'"> 9</span>
+        <span class="num" onclick="document.calc.txt.value += ' 0'"> 0</span>
+        <span class="num function" onclick="document.calc.txt.value +='.'">,</span>
+        <span class="equal" onclick="document.calc.txt.value = eval(calc.txt.value)">=</span>
+
+    </form>
+</body>
+<style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    .caculator {
+        position: relative;
+        display: grid;
+    }
+
+    .caculator .value {
+        grid-column: span 5;
+        height: 100px;
+        text-align: right;
+        /* border: none; */
+        padding: 10px;
+        font-size: 18px;
+    }
+
+    .caculator span {
+        display: grid;
+        width: 80px;
+        height: 80px;
+        border: 2px solid rgba(0,0,0.1);
+        text-align: center;
+        place-items: center;
+        font-size: 20px;
+    }
+
+    .num.function,
+    .equal {
+        background-color: rgba(0,0,0,0.2);
+    }
+
+    .caculator span:active {
+        background-color: yellow;
+    }
+
+    span.equal {
+        display: grid;
+        grid-column: span 4;
+        width: 320px;
+    }
+
+    @media (max-width: 400px) {
+        .caculator span {
+            display: grid;
+            width: 70px;
+            height: 70px;
+            font-size: 30px;
+        }
+
+        span.equal {
+            display: grid;
+            width: 280px;
+        }
+
+        .caculator .value {
+            font-size: 20px;
+        }
+
+    }
+</style>
+</html>
