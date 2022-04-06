@@ -7,6 +7,14 @@
     <title>Caculator</title>
 </head>
 <body>
+    <p id="demo"></p>
+    <div class="time">
+        <span id="hrs">00</span>
+        <span>:</span>
+        <span id="min">00</span>
+        <span>:</span>
+        <span id="sec">00</span>
+    </div>
     <form action="" name="calc" class="caculator">
         <input type="text" class="value" name="txt" readonly="">
         <span class="num function" onclick="document.calc.txt.value =''"> Xóa</span>
@@ -41,6 +49,7 @@
         justify-content: center;
         align-items: center;
         min-height: 100vh;
+        flex-direction: column;
     }
 
     .caculator {
@@ -82,6 +91,16 @@
         width: 320px;
     }
 
+    p {
+        margin-bottom: 30px;
+        font-size: 20px;
+    }
+
+    .time {
+        margin-bottom: 30px;
+        font-size: 18px;
+    }
+
     @media (max-width: 400px) {
         .caculator span {
             display: grid;
@@ -97,6 +116,18 @@
 
         .caculator .value {
             font-size: 20px;
+        }
+
+        .time span {
+            font-size: 22px;
+        }
+
+        .time {
+            margin-bottom: 50px;
+        }
+
+        p {
+            font-size: 24px;
         }
     }
 
@@ -116,4 +147,27 @@
         }
     }
 </style>
+<script type="text/javascript">
+    const d = new Date();
+    var day = d.getDay() + 1;
+    var date = d.getDate();
+    var month = d.getMonth() + 1;
+    var fullYear = d.getFullYear();
+    document.getElementById('demo').innerHTML = "Thứ " + day + ",  " + " ngày " + date + " tháng " + month + " năm " + fullYear;
+
+    function myTime() {
+        const newTime = new Date();
+        var hours = newTime.getHours();
+        var minutes  = newTime.getMinutes();
+        var seconds = newTime.getSeconds();
+        document.getElementById('hrs').innerHTML = hours;
+        document.getElementById('min').innerHTML = minutes;
+        document.getElementById('sec').innerHTML = seconds;
+
+        if (seconds < 10) {
+            document.getElementById('sec').innerHTML = "0" + seconds;
+        }
+    }
+    setInterval(myTime, 10);
+</script>
 </html>
