@@ -8,12 +8,17 @@
     <title>Game</title>
 </head>
 <body>
+    <span id="winner-1">BẠN ĐÃ CHIẾN THẮNG</span>
+    <span id="winner-2">MÁY CHỦ ĐÃ CHIẾN THẮNG </span>
+    <span id="equal">HÒA NHAU</span>
     <div id="hand-1">
         <img src="https://algebra2.thinkport.org/module6/images/task-8/rock-you.png" alt="" id="img-1">
+        <span class="text-1" id="text-1">BẠN</span>
     </div>
 
     <div id="hand-2">
         <img src="https://algebra2.thinkport.org/module6/images/task-8/rock-cpu.png" alt="" id="img-2">
+        <span class="text-2" id="text-2">ĐỐI THỦ</span>
     </div>
     <span class="text"></span>
     <div class="container">
@@ -68,6 +73,7 @@
         position: relative; 
         left: 900px;
         visibility: hidden;
+        top: -200px;
     }
 
     #img-2 {
@@ -75,7 +81,7 @@
         left: 52%;
         width: 400px;
         position: absolute; 
-        top: 20%;
+        top: 30%;
     }
 
     #rock {
@@ -127,6 +133,50 @@
         visibility: hidden;
     }
 
+    .text-1 {
+        position: relative;
+        top: 190px;
+        left: -300px;
+        font-size: 40px;
+    }
+
+    .text-2 {
+        position: relative;
+        top: 140px;
+        left: 65%;
+        font-size: 40px;
+    }
+
+    #winner-1 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        top: 100px;
+        font-size: 20px;
+        visibility: hidden;
+    }
+
+    #winner-2 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        top: 80px;
+        font-size: 20px;
+        visibility: hidden;
+    }
+
+    #equal {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        top: 50px;
+        font-size: 20px;
+        visibility: hidden;
+    }
+
 
 
     @keyframes shakeLeft {
@@ -156,7 +206,7 @@
             transform: translateY(0px);
         }
     }
-/* 
+/*
     @media (min-width: 200px) and (max-width: 389px) {
         #img-1 {
             width: 600px;
@@ -227,14 +277,128 @@
         #img-1 {
             width: 600px;
             position: absolute;
-            top: 800px;
+            top: 520px;
             left: -320px;
         }
 
         #img-2 {
             width: 600px;
             position: absolute;
-            top: 840px;
+            top: 564px;
+            left: 730px;
+        }
+
+        #start {
+            height: 300px;
+            width: 800px;
+            border-radius: 70px;
+            font-size: 100px;
+            margin-top: 1000px;
+            margin-left: 100px;
+        }
+
+        .container {
+            display: block;
+        }
+
+        #rock, #paper, #scissors {
+            height: 200px;
+            width: 400px;
+            position: absolute;
+            top: 210%; 
+        }
+
+        #rock {
+            margin-left: -420px;
+        }
+
+        #paper {
+            top: 270%;
+            margin-left: -200px;
+        }
+
+        button i {
+            font-size: 100px;
+        }
+
+        .reset {
+            height: 200px;
+            width: 600px;
+            border-radius: 70px;
+            font-size: 100px;
+            margin-top: 140%;
+            margin-left: -800px;
+
+        }
+
+        #gift-candy-1 {
+            position: relative;
+            top: -200px;
+            left: 100px;
+            width: 180px;
+        }
+
+        #gift-candy-2 {
+            width: 180px;
+            position: relative;
+            top: -200px;
+        }
+
+        .text-1 {
+            left: 140px;
+            top: 700px;
+            font-size: 100px;
+        }
+
+        .text-2 {
+            left: 900px;
+            top: 600px;
+            font-size: 90px;
+        }
+
+        #equal {
+            font-size: 60px;
+            position: relative;
+            left: 500px;
+            top: -60px;
+        }
+
+        #winner-1 {
+            font-size: 50px;
+            position: relative;
+            left: 500px;
+            top: 100px;
+            line-height: 4rem;
+        }
+
+        #winner-2 {
+            font-size: 50px;
+            letter-spacing: 2px;
+            line-height: 1.5em;
+            position: relative;
+            left: 500px;
+            top: 100px;
+        }
+
+
+
+
+
+       
+    }
+
+    @media (min-width: 410px) and (max-width: 760px) {
+        #img-1 {
+            width: 600px;
+            position: absolute;
+            top: 500px;
+            left: -320px;
+        }
+
+        #img-2 {
+            width: 600px;
+            position: absolute;
+            top: 520px;
             left: 730px;
         }
 
@@ -259,11 +423,11 @@
         }
 
         #rock {
-            margin-left: -420px;
+            margin-left: -450px;
         }
 
         #paper {
-            top: 230%;
+            top: 240%;
             margin-left: -200px;
         }
 
@@ -276,32 +440,72 @@
             width: 600px;
             border-radius: 70px;
             font-size: 100px;
-            margin-top: 1600px;
+            margin-top: 120%;
             margin-left: -800px;
 
         }
 
         #gift-candy-1 {
             position: relative;
-            top: 300px;
+            top: 30px;
             left: 100px;
+            width: 180px;
+        }
+
+        #gift-candy-2 {
+            width: 180px;
+        }
+
+        .text-1 {
+            left: 140px;
+            top: 800px;
+            font-size: 100px;
+
+        }
+
+        .text-2 {
+            left: 860px;
+            top: 700px;
+            font-size: 100px;
+
+        }
+
+        #winner-1 {
+            font-size: 50px;
+            left: 500px;
+        }
+
+        #winner-2 {
+            font-size: 50px;
+            left: 500px;
+            line-height: 1.5;
+        }
+
+        #equal {
+            left: 500px;
+            font-size: 50px;
+
         }
 
     }
 
-    @media (min-width: 410px) and (max-width: 768px) {
+    @media (min-width: 765px) and (max-width: 900px) {
+        body {
+            overflow: hidden;
+        }
+
         #img-1 {
-            width: 600px;
+            width: 700px;
             position: absolute;
-            top: 940px;
+            top: 300px;
             left: -320px;
         }
 
         #img-2 {
-            width: 600px;
+            width: 700px;
             position: absolute;
-            top: 960px;
-            left: 730px;
+            top: 320px;
+            left: 780px;
         }
 
         #start {
@@ -309,52 +513,82 @@
             width: 800px;
             border-radius: 70px;
             font-size: 100px;
-            margin-top: 1000px;
-            margin-left: 100px;
+            margin-top: 500px;
         }
 
-        .container {
-            display: block;
+        .text-1 {
+            left: 140px;
+            font-size: 100px;
+            top: 700px;
+        }
+
+        .text-2 {
+            left: 1000px;
+            font-size: 100px;  
+            top: 600px; 
         }
 
         #rock, #paper, #scissors {
             height: 200px;
-            width: 400px;
+            width: 400px; 
             position: absolute;
-            top: 200%; 
+            top: 120%;
+        }
+
+        #scissors {
+            margin-left: 170px;
         }
 
         #rock {
-            margin-left: -420px;
+            margin-left: -450px;
         }
 
         #paper {
-            top: 250%;
-            margin-left: -200px;
+            top: 150%;
+            margin-left: -160px;
+        }
+
+        #reset {
+            height: 200px;
+            width: 600px;
+            border-radius: 70px;
+            font-size: 100px;
+            margin-left: -750px;
+            margin-top: 10%;
         }
 
         button i {
             font-size: 100px;
         }
 
-        .reset {
-            height: 200px;
-            width: 600px;
-            border-radius: 70px;
-            font-size: 100px;
-            margin-top: 1550px;
-            margin-left: -800px;
+        #winner-1 {
+            font-size: 50px;
+            left: 400px;
+        }
 
+        #winner-2 {
+            font-size: 50px;
+            left: 400px;
+        }
+
+        #equal {
+            font-size: 50px;
+            left: 400px;
         }
 
         #gift-candy-1 {
+            width: 200px;
             position: relative;
-            top: 300px;
-            left: 100px;
+            top: -100px;
         }
 
+        #gift-candy-2 {
+            width: 200px;
+            position: relative;
+            top: -100px;
+            left: 1050px;
+        }
     }
-    
     
 </style>
 <script type="text/javascript">
@@ -364,6 +598,9 @@
         document.getElementById("paper").style.visibility = "visible";
         document.getElementById("scissors").style.visibility = "visible";
         document.getElementById("reset").style.visibility = "visible";
+        document.getElementById("text-1").style.visibility = "hidden";
+        document.getElementById("text-2").style.visibility = "hidden"
+
     }
 
     document.querySelector('.reset').onclick = function() {myReset()};
@@ -386,34 +623,38 @@
 
         setTimeout(() => {
             if (random == position) {
+                document.getElementById("equal").style.visibility = "visible";
                 document.getElementById("gift-candy-1").style.visibility = "visible";
                 document.getElementById("gift-candy-2").style.visibility = "visible";
-                alert("HÒA NHAU")
-                // window.location.reload();
+                // alert("HÒA NHAU")
             }
 
             else if  (position == 0 && random == 2) {
+                document.getElementById("winner-1").style.visibility = "visible";
                 document.getElementById("gift-candy-1").style.visibility = "visible";
-                alert("BẠN ĐÃ THẮNG !");
+            
                 // window.location.reload();
 
             }
 
             else if (position == 1 && random == 0) {
+                document.getElementById("winner-1").style.visibility = "visible";
                 document.getElementById("gift-candy-1").style.visibility = "visible";
-                alert("BẠN ĐÃ THẮNG !");
+            
                 // window.location.reload();
             }
 
             else if (position == 2 && random == 1) {
+                document.getElementById("winner-1").style.visibility = "visible"
                 document.getElementById("gift-candy-1").style.visibility = "visible";
-                alert("BẠN ĐÃ THẮNG !");
+            
                 // window.location.reload();
             }
 
             else {
+                document.getElementById("winner-2").style.visibility = "visible"
                 document.getElementById("gift-candy-2").style.visibility = "visible";
-                alert("MÁY CHỦ ĐÃ THẮNG ! CỐ GẮN LẦN SAU NHÉ !");
+    
                 // window.location.reload()
             }
         }, 5500);
