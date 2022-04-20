@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROCK-PAPER-SCISSORS</title>
+    <script src="https://kit.fontawesome.com/050c9a1c48.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="text">
+        <span id="winner-1">BẠN ĐÃ CHIẾN THẮNG</span>
+        <span id="winner-2">MÁY CHỦ ĐÃ CHIẾN THẮNG</span>
+        <span id="equal">HÒA NHAU</span>
+    </div>
+    <div class="container-hand">
+        <div id="hand-1">
+            <img src="https://algebra2.thinkport.org/module6/images/task-8/rock-you.png" alt="" id="img-1">
+              
+        </div>
+        <div id="hand-2">
+            <img src="https://algebra2.thinkport.org/module6/images/task-8/rock-cpu.png" alt="" id="img-2">
+                
+        </div>
+    </div>
+
+    <div class="container-rps">
+        <button type="button" onclick="game(0)" id="rock"><i class="fa fa-hand-rock-o" aria-hidden="true"></i></button>
+        <button type="button" onclick="game(1)" id="paper"><i class="fa fa-hand-paper-o" aria-hidden="true"></i></button>
+        <button type="button" onclick="game(2)" id="scissors"><i class="fa fa-hand-scissors-o" aria-hidden="true"></i></button>
+    </div>
+
+    <button type="button" onclick="StartReset()" id="start">Start</button>
+    <button type="button" onclick="StartReset()" id="reset" class="reset">Reset</button>
+</body>
+<style type="text/css">
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        overflow-x: hidden;
+    }
+
+    body {
+        background-repeat: no-repeat;
+        background-color: transparent;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .container-hand{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 10%;
+    }
+
+    #img-1 {
+        width: 400px;
+        /* margin-top: 20px;
+        position: relative;
+        top: 120px;
+        margin-left: 336px; */
+    }
+
+    #img-2 {
+        width: 400px;
+        /* position: absolute;
+        left: 52%;
+        top: 23%; */
+    }
+
+    button {
+        height: 80px;
+        width: 140px;
+        font-size: x-large;
+        font-weight: bold;
+        background-color: yellow;
+        color: rgba(0,0,0,0.9);
+        border-radius: 44px;
+        cursor: pointer;
+        border: 4px solid rgba(0,0,0,0.9);
+    }
+
+    #rock {
+        position: absolute;
+        left: 900px;
+        top: 75%;
+        visibility: hidden;
+    }
+
+    #paper {
+        position: absolute;
+        left: 680px;
+        top: 75%;
+        visibility: hidden;
+    }
+
+    #scissors {
+        position: absolute;
+        top: 75%;
+        left: 460px;
+        visibility: hidden;
+    }
+
+    #start {
+        background-color: orangered;
+        position: absolute;
+        top: 75%;
+        left: 45%;
+    }
+
+    #reset {
+        position: absolute;
+        top: 75%;
+        left: 1200px;
+        background-color: orangered;
+        visibility: hidden;
+    }
+
+    .gift {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 50%;
+        left: 600px;
+        font-size: 40px;
+    }
+
+    #your-score {
+        margin-right: 300px;
+    }
+
+    .text {
+        position: relative;
+        left: 35%;
+        top: 40px;
+    }
+
+    #winner-1 {
+        visibility: hidden;
+        position: absolute;
+        left: 10%;
+    }
+
+    #winner-2 {
+        position: absolute;
+        left: 10%;
+        visibility: hidden;
+    }
+
+    #equal {
+        visibility: hidden;
+        position: relative;
+        left: 12%;   
+       
+    }
+
+
+
+
+    
+
+    @keyframes shakeRight {
+        0% {
+            transform: translateY(0px);
+        }
+
+        50% {
+            transform: translateY(-50px);
+        }
+
+        100% {
+            transform: translateY(0px);
+        }
+    }
+
+    @keyframes shakeLeft {
+        0% {
+            transform: translateY(0px);
+        }
+
+        50% {
+            transform: translateY(-50px);
+        }
+
+        100% {
+            transform: translateY(0px);
+        }
+    }
+    
+
+    @media (max-width: 400px) {
+        html {
+            overflow: hidden;
+        }
+
+        body {
+            overflow: hidden;
+        }
+
+        .container-hand {
+            margin-top: 50%;
+            margin-left: -40px;
+        }
+
+        #img-1 {
+            width: 150px;
+            position: relative;
+            right: 5px;
+        }
+
+        #img-2 {
+            width: 150px;
+            position: relative;
+            left: 45px;
+        }
+
+        #start {
+            left: 145px;
+            top: 320px;
+        }
+
+        button {
+            width: 100px;
+        }
+
+        
+
+        #scissors {
+            left: 7px;
+            top: 430px;
+        }
+
+        #paper {
+            left: 145px;
+            top: 430px;
+        }
+
+        #rock {
+            left: 272px;
+            top: 430px;
+        }
+
+        #reset {
+            left: 145px;
+            top: 320px;
+        }
+
+        #winner-1 {
+            left: -5%;
+        }
+
+        #winner-2 {
+            left: -10%;
+        }
+
+        #equal {
+            left: 8%;
+        }
+    }
+
+    @media (min-width: 410px) and (max-width: 490px) {
+        html {
+            overflow: hidden;
+        }
+
+        body {
+            overflow: hidden;
+        }
+
+        .container-hand {
+            margin-top: 50%;
+            margin-left: -40px;
+        }
+
+        #img-1 {
+            width: 150px;
+            position: relative;
+            right: 10px;
+        }
+
+        #img-2 {
+            width: 150px;
+            position: relative;
+            left: 50px;
+        }
+
+        #start {
+            left: 154px;
+            top: 320px;
+        }
+
+        button {
+            width: 100px;
+        }
+
+        
+
+        #scissors {
+            left: 7px;
+            top: 430px;
+        }
+
+        #paper {
+            left: 154px;
+            top: 430px;
+        }
+
+        #rock {
+            left: 306px;
+            top: 430px;
+        }
+
+        #reset {
+            left: 154px;
+            top: 320px;
+        }
+
+        #winner-1 {
+            left: -5%;
+        }
+
+        #winner-2 {
+            left: -10%;
+        }
+
+        #equal {
+            left: 8%;
+        }
+    }
+
+    @media (min-width: 500px) and (max-width: 800px) {
+
+        body {
+            
+        }
+
+        .container-hand {
+            margin-top: 50%;
+            margin-left: 35%;
+        }
+
+        #img-1 {
+            width: 400px;
+            margin-right: 60px;
+        }
+
+        #img-2 {
+            width: 400px;
+        }
+
+        #start {
+            left: 380px;
+            width: 300px;
+            height: 150px;
+            font-size: 50px;
+            border-radius: 70px;
+        }
+
+        #reset {
+            left: 380px;
+            width: 300px;
+            height: 150px;
+            border-radius: 70px;
+            font-size: 50px;
+        }
+
+        #scissors {
+            width: 250px;
+            height: 150px;
+            top: 1000px;
+            left: 50px;
+            font-size: 50px;
+            border-radius: 80px;
+        }
+
+        #paper {
+           width: 250px;
+           height: 150px;
+           top: 1000px;
+           border-radius: 80px;
+           font-size: 50px;
+           left: 400px; 
+        }
+
+        #rock {
+            width: 250px;
+            height: 150px;
+            border-radius: 80px;
+            font-size: 50px;
+            top: 1000px;
+            left: 750px;
+
+        }
+
+        #winner-1 {
+            left: 30%;
+            top: 100px;
+            font-size: 35px;
+        }
+
+        #winner-2 {
+            left: 25%;
+            font-size: 35px;
+            top: 100px;
+        }
+
+        #equal {
+            font-size: 35px;
+            left: 40%;
+            top: 100px;
+        }
+
+
+
+    }
+</style>
+<script type="text/javascript">
+    var yourScore = 0;
+    var opponentScore = 0;
+
+    function StartReset() {
+        document.getElementById("start").style.visibility = "hidden";
+        document.getElementById("rock").style.visibility = "visible";
+        document.getElementById("paper").style.visibility = "visible";
+        document.getElementById("scissors").style.visibility = "visible";
+        document.getElementById("reset").style.visibility = "visible";
+    }
+
+    document.querySelector('.reset').onclick = function() {myReset()};
+    function myReset() {
+        window.location.reload();
+    }
+
+    clickedHand = ["<img src = 'https://algebra2.thinkport.org/module6/images/task-8/rock-you.png' id ='img-1'>", "<img src = 'https://algebra2.thinkport.org/module6/images/task-8/paper-you.png' id = 'img-1'>", "<img src = 'https://algebra2.thinkport.org/module6/images/task-8/scissors-you.png' id='img-1'>"];
+    clickedRightHand = ["<img src = 'https://algebra2.thinkport.org/module6/images/task-8/rock-cpu.png' id = 'img-2'>", "<img src = 'https://algebra2.thinkport.org/module6/images/task-8/paper-cpu.png' id='img-2'>", "<img src = 'https://algebra2.thinkport.org/module6/images/task-8/scissors-cpu.png' id = 'img-2'>"];
+
+    function game(position) {
+
+        document.getElementById('img-1').style.animation = 'shakeLeft 1s 5 ease-in-out';
+        document.getElementById('img-2').style.animation = 'shakeRight 1s 5 ease-in-out';
+
+        var random = Math.floor(Math.random() * 3);
+        setTimeout(() => {
+            document.getElementById("hand-2").innerHTML = clickedRightHand[random];
+            document.getElementById("hand-1").innerHTML = clickedHand[position];
+        }, 5000);
+
+        setTimeout(() => {
+            if (random == position) {
+ 
+                document.getElementById('equal').style.visibility = 'visible';
+                document.getElementById('winner-1').style.visibility = 'hidden';
+                document.getElementById('winner-2').style.visibility = 'hidden';
+            }
+
+            else if (position == 0 && random == 2) {
+       
+                document.getElementById('winner-1').style.visibility = 'visible';
+             
+            }
+
+            else if (position == 1 && random == 0) {
+                
+                document.getElementById('winner-1').style.visibility = 'visible';
+              
+            }
+
+            else if (position == 2 && random == 1) {
+                
+                document.getElementById('winner-1').style.visibility = 'visible';
+                    
+            }
+
+            else {
+               
+                document.getElementById('winner-2').style.visibility = 'visible';
+               
+            }
+
+        }, 5500);
+
+        
+
+    }
+</script>
+</html>
