@@ -13,6 +13,10 @@
         <span id="winner-2">MÁY CHỦ ĐÃ CHIẾN THẮNG</span>
         <span id="equal">HÒA NHAU</span>
     </div>
+    <div class="gift">
+        <span id="my-score"></span>
+        <span id="opponent-score"></span>
+    </div>
     <div class="container-hand">
         <div id="hand-1">
             <img src="https://algebra2.thinkport.org/module6/images/task-8/rock-you.png" alt="" id="img-1">
@@ -111,6 +115,7 @@
         position: absolute;
         top: 75%;
         left: 45%;
+        /* visibility: hidden; */
     }
 
     #reset {
@@ -336,10 +341,6 @@
 
     @media (min-width: 500px) and (max-width: 800px) {
 
-        body {
-            
-        }
-
         .container-hand {
             margin-top: 50%;
             margin-left: 35%;
@@ -415,6 +416,88 @@
             left: 40%;
             top: 100px;
         }
+    }
+
+    @media (min-width: 900px) and (max-width: 1400px) {
+        
+
+        .container-hand {
+            margin-top: 50%;
+            margin-left: 35%;
+
+        }
+
+        #img-1 {
+            width: 544px;
+            margin-left: -5%;
+        }
+
+        #img-2 {
+            width: 544px;
+            margin-left: 5%;
+        }
+
+        #start {
+            left: 50%;
+        }
+
+        #start {
+            font-size: 50px;
+            width: 400px;
+            height: 160px;
+            border-radius: 71px;
+        }
+
+        #reset {
+            width: 400px;
+            height: 160px;
+            border-radius: 71px;
+            font-size: 50px;
+            top: 1300px;
+            left: 50%;
+        }
+
+        #scissors {
+            width: 250px;
+            height: 150px;
+            border-radius: 71px;
+            font-size: 50px;
+            left: 80px;
+        }
+
+        #paper {
+            width: 250px;
+            height: 150px;
+            border-radius: 71px;
+            font-size: 50px;
+            left: 580px;
+        }
+
+        #rock {
+            width: 250px;
+            height: 150px;
+            border-radius: 71px;
+            font-size: 50px;
+            left: 1050px;
+        }
+
+        #winner-1 {
+            left: 15%;
+            top: 100px;
+            font-size: 35px;
+        }
+
+        #winner-2 {
+            left: 15%;
+            font-size: 35px;
+            top: 100px;
+        }
+
+        #equal {
+            font-size: 35px;
+            left: 25%;
+            top: 100px;
+        }
 
 
 
@@ -423,6 +506,12 @@
 <script type="text/javascript">
     var yourScore = 0;
     var opponentScore = 0;
+    function myScore() {
+        document.getElementById("my-score").innerHTML = yourScore;
+        document.getElementById("opponent-score").innerHTML = opponentScore;
+    }
+
+    
 
     function StartReset() {
         document.getElementById("start").style.visibility = "hidden";
@@ -453,22 +542,21 @@
 
         setTimeout(() => {
             if (random == position) {
- 
+               
                 document.getElementById('equal').style.visibility = 'visible';
-                document.getElementById('winner-1').style.visibility = 'hidden';
-                document.getElementById('winner-2').style.visibility = 'hidden';
+                
             }
 
             else if (position == 0 && random == 2) {
-       
+                
                 document.getElementById('winner-1').style.visibility = 'visible';
-             
+                
             }
 
             else if (position == 1 && random == 0) {
                 
                 document.getElementById('winner-1').style.visibility = 'visible';
-              
+                 
             }
 
             else if (position == 2 && random == 1) {
@@ -478,14 +566,12 @@
             }
 
             else {
-               
+              
                 document.getElementById('winner-2').style.visibility = 'visible';
-               
+                
             }
 
         }, 5500);
-
-        
 
     }
 </script>
