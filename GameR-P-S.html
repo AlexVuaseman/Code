@@ -170,11 +170,6 @@
        
     }
 
-
-
-
-    
-
     @keyframes shakeRight {
         0% {
             transform: translateY(0px);
@@ -240,7 +235,7 @@
         }
 
         #scissors {
-            left: 7px;
+            left: 4px;
             top: 430px;
         }
 
@@ -354,8 +349,7 @@
 
     }
 
-    @media (min-width: 500px) and (max-width: 800px) {
-
+    @media (min-width: 800px) and (max-width: 900px) {
         html {
             overflow: hidden;
         }
@@ -364,99 +358,36 @@
             overflow: hidden;
         }
 
-        .container-hand {
-            margin-top: 20%;
-            margin-left: -2%;
-        }
-
         #img-1 {
-            width: 200px;
-            margin-right: 60px;
+            width: 300px;
         }
 
         #img-2 {
-            width: 200px;
-            margin-left: 80px;
-        }
-
-        #start {
-            left: 300px;
-            width: 200px;
-            height: 100px;
-            font-size: 30px;
-            border-radius: 70px;
-            top: 450px;
-        }
-
-        #reset {
-            left: 280px;
-            width: 200px;
-            height: 100px;
-            border-radius: 70px;
-            font-size: 30px;
-            top: 450px;
-        }
-
-        #scissors {
-            width: 200px;
-            height: 100px;
-            top: 700px;
-            left: 30px;
-            font-size: 40px;
-            border-radius: 80px;
-        }
-
-        #paper {
-           width: 200px;
-           height: 100px;
-           top: 700px;
-           border-radius: 80px;
-           font-size: 30px;
-           left: 280px; 
-        }
-
-        #rock {
-            width: 200px;
-            height: 100px;
-            border-radius: 80px;
-            font-size: 30px;
-            top: 700px;
-            /* left: 550px; */
-           left: 540px;
-
-        }
-
-        #winner-1 {
-            left: -8%;
-            top: 50px;
-            font-size: 35px;
-        }
-
-        #winner-2 {
-            left: -10%;
-            font-size: 35px;
-            top: 50px;
-        }
-
-        #equal {
-            font-size: 35px;
-            left: 3%;
-            top: 50px;
+            width: 300px;
         }
 
         .gift {
-           left: 200px;
-           top: 35%;
-       }
+            left:235px;
+            top: 15%;
+        }
 
+        #scissors {
+            left: 20px;
+        }
 
-    }
+        #paper {
+            left: 230px;
+        }
 
-    @media (min-width: 900px) and (max-width: 1400px) {
-        
+        #rock {
+            left: 450px;
+        }
 
-       
-    }
+        #reset {
+            left: 650px;
+        }
+
+    } 
 </style>
 <script type="text/javascript">
     var yourScore = 1; 
@@ -473,17 +404,198 @@
         document.getElementById("paper").style.visibility = "visible";
         document.getElementById("scissors").style.visibility = "visible";
         document.getElementById("reset").style.visibility = "visible";
+
     }
+
+    window.addEventListener("keydown", function(event) {
+        if (event.keyCode === 13) {
+            document.getElementById("start").style.visibility = 'hidden';
+            document.getElementById("rock").style.visibility = 'visible';
+            document.getElementById("paper").style.visibility = 'visible';
+            document.getElementById("scissors").style.visibility = 'visible';
+            document.getElementById("reset").style.visibility = 'visible';
+        }
+    })
 
     document.querySelector('.reset').onclick = function() {myReset()};
     function myReset() {
         window.location.reload();
     }
-
-  
         
     clickedHand = ["<img src = 'https://alexvuaseman.github.io/Code/rock-you.png' id ='img-1'>", "<img src = 'https://alexvuaseman.github.io/Code/paper-you.png' id = 'img-1'>", "<img src = 'https://alexvuaseman.github.io/Code/scissors-you.png' id='img-1'>"];
     clickedRightHand = ["<img src = 'https://alexvuaseman.github.io/Code/rock-cpu.png' id = 'img-2'>", "<img src = 'https://alexvuaseman.github.io/Code/paper-cpu.png' id='img-2'>", "<img src = 'https://alexvuaseman.github.io/Code/scissors-cpu.png' id = 'img-2'>"];
+
+    window.addEventListener("keydown", function(event) {
+         
+        var random = Math.floor(Math.random() * 3);
+        console.log(event.keyCode)
+        setTimeout(() => {
+            document.getElementById("hand-2").innerHTML = clickedRightHand[random];
+        }, 5000)
+        
+        if (event.keyCode === 82) {
+            document.getElementById("img-1").style.animation = 'shakeLeft 0.5s 9 ease-in-out';
+            document.getElementById("img-2").style.animation = 'shakeRight 0.5s 9 ease-in-out';
+
+            document.getElementById("rock").style.backgroundColor = 'rgba(0,0,0,0.09)';
+            setTimeout(() => {
+                document.getElementById("rock").style.backgroundColor = 'yellow';
+            }, 100)
+
+            setTimeout(() => {
+                document.getElementById("hand-1").innerHTML = clickedHand[0];
+            }, 5000)
+
+            setTimeout(() => {
+                if (clickedHand[0] && random == 2) {
+                    document.getElementById("my-score").innerHTML = yourScore++;
+                }
+
+                else if (clickedHand[0] && random == 1) {
+                    document.getElementById("opponent-score").innerHTML = opponentScore++;
+                }
+
+                else if (clickedHand[0] && random == 0) {
+                    document.getElementById("my-score").innerHTML = yourScore++;
+                    document.getElementById("opponent-score").innerHTML = opponentScore++;
+                }
+
+                if (yourScore == 6 || opponentScore == 6) {
+                    if (yourScore == 6) {
+                        document.getElementById("winner-1").style.visibility = "visible";
+                        setTimeout(() => {
+                            window.location.reload();
+                        }, 6000)
+                    }
+
+                    else if (opponentScore == 6) {
+                        document.getElementById("winner-2").style.visibility = "visible";
+                        setTimeout(() => {
+                            window.location.reload();
+                        }, 6000)
+                    }
+
+                    else if (yourScore == 6 && opponentScore == 6) {
+                        document.getElementById("equal").style.visibility = "visible";
+                        setTimeout(() => {
+                            window.location.reload();
+                        }, 6000)
+                    }
+                }
+            }, 5500) 
+        }
+
+        else if (event.keyCode === 83) {
+            document.getElementById("img-1").style.animation = 'shakeLeft 0.5s 9 ease-in-out';
+            document.getElementById("img-2").style.animation = 'shakeRight 0.5s 9 ease-in-out';
+
+            setTimeout(() => {
+                document.getElementById("hand-1").innerHTML = clickedHand[2];
+            }, 5000)
+
+            document.getElementById("scissors").style.backgroundColor = "rgba(0,0,0,0.09)";
+            setTimeout(() => {
+                document.getElementById("scissors").style.backgroundColor = "yellow";
+            }, 100)
+
+            setTimeout(() => {
+                if (clickedHand[2] && random == 1) {
+                    document.getElementById("my-score").innerHTML = yourScore++;
+                }
+
+                else if (clickedHand[2] && random == 0) {
+                    document.getElementById("opponent-score").innerHTML = opponentScore++;
+                }
+
+                else if (clickedHand[2] && random == 2) {
+                    document.getElementById("my-score").innerHTML = yourScore++;
+                    document.getElementById("opponent-score").innerHTML = opponentScore++;
+                }
+
+                if (yourScore == 6 || opponentScore ==6) {
+                    if (yourScore == 6) {
+                        document.getElementById("winner-1").style.visibility = "visible";
+                        setTimeout(() => {
+                            window.location.reload();
+                        }, 6000)
+                    }
+                    
+                    else if (opponentScore == 6) {
+                        documente.getElementById("winner-2").style.visibility = "visibile";
+                        setTimeout(() => {
+                            window.location.reload();
+                        }, 6000)
+                    }
+
+                    else if (yourScore == 6 && opponentScore == 6) {
+                        document.getElementById("equal").style.visibility = "visible";
+                        setTimeout(() => {
+                            window.location.reload();
+                        }, 6000)
+                    }
+                }
+
+            }, 5500);
+
+
+        }
+
+        else if (event.keyCode === 80) {
+            document.getElementById("img-1").style.animation = 'shakeLeft 0.5s 9 ease-in-out';
+            document.getElementById("img-2").style.animation = 'shakeRight 0.5s 9 ease-in-out';
+
+            setTimeout(() => {
+                document.getElementById("hand-1").innerHTML = clickedHand[1];
+            }, 5000)
+
+            document.getElementById("paper").style.backgroundColor = 'rgba(0,0,0,0.09)';
+            setTimeout(() => {
+                document.getElementById("paper").style.backgroundColor = "yellow";
+            }, 100)
+
+            setTimeout(() => {
+                if (clickedHand[1] && random == 0) {
+                    document.getElementById("my-score").innerHTML = yourScore++;
+                }
+
+                else if (clickedHand[1] && random == 2) {
+                    document.getElementById("opponent-score").innerHTML = opponentScore++;
+                }
+
+                else if (clickedHand[1] && random == 1) {
+                    document.getElementById("my-score").innerHTML = yourScore++;
+                    document.getElementById("opponent-score").innerHTML = opponentScore++;
+
+                }
+
+                if (yourScore == 6 || opponentScore == 6) {
+                    if (yourScore == 6) {
+                        document.getElementById("winner-1").style.visibility = "visible";
+                        setTimeout(() => {
+                            window.location.reload();
+                        }, 6000)
+                    }
+
+                    else if (opponentScore == 6) {
+                        document.getElementById("winner-2").style.visibility = "visible";
+                        setTimeout(() => {
+                            window.location.reload();
+                        }, 6000)
+                    }
+
+                    else if (yourScore == 6 && opponentScore == 6) {
+                        document.getElementById("equal").style.visibility = "visible";
+                        setTiemout(() => {
+                            window.location.reload();
+                        }, 6000)
+                    } 
+                }
+            }, 5500)
+
+        }
+    })
+
+    
 
     function game(position) {
 
@@ -497,7 +609,7 @@
         }, 5000);
 
         setTimeout(() => {
-          if (yourScore != 6 || opponentScore != 6) {
+          if (yourScore != 6 || opponentScore != 6) {  
             if (random == position) {
                 document.getElementById("my-score").innerHTML = yourScore++;
                 document.getElementById("opponent-score").innerHTML = opponentScore++;
@@ -529,7 +641,7 @@
 
           }
 
-          else if (yourScore == 6 || opponentScore == 6) {}  {
+          else if (yourScore == 6 || opponentScore == 6) {
               if (yourScore == 6) {
                   document.getElementById("winner-1").style.visibility = "visible";
                   setTimeout(function() {
