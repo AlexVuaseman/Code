@@ -12,7 +12,7 @@
     <div class="text">
         <span id="winner-1">You are the winner !</span>
         <span id="winner-2">Your opponent is the winner !</span>
-        <span id="equal">Draw!</span>
+        <span id="equal">Draw !</span>
     </div>
     <div class="gift">
         <span id="my-score">0</span>
@@ -349,6 +349,100 @@
 
     }
 
+    @media(min-width: 500px) and (max-width: 800px) {
+        html {
+            overflow: hidden;
+        }
+
+        body {
+            overflow: hidden;
+        }
+
+        .container-hand {
+            margin-top: 20%;
+            margin-left: -2%;
+        }
+
+        #img-1 {
+            width: 200px;
+            margin-right: 60px;
+        }
+
+        #img-2 {
+            width: 200px;
+            margin-left: 80px;
+        }
+
+        #start {
+            left: 280px;
+            width: 200px;
+            height: 100px;
+            font-size: 30px;
+            top: 500px;
+            border-radius: 70px;
+
+        }
+
+        #reset {
+            left: 280px;
+            width: 200px;
+            height: 100px;
+            border-radius: 70px;
+            font-size: 30px;
+            top: 500px;
+        }
+
+        #scissors {
+            width: 200px;
+            height: 100px;
+            top: 700px;
+            left: 30px;
+            border-radius: 80px;
+            font-size: 40px;
+        }
+
+        #paper {
+            width: 200px;
+            height: 100px;
+            top: 700px;
+            border-radius: 80px;
+            font-size: 30px;
+            left: 280px;
+        }
+
+        #rock {
+            width: 200px;
+            height: 100px;
+            border-radius: 80px;
+            font-size: 30px;
+            top: 700px;
+            left: 540px;
+        }
+
+        #winner-1 {
+            left: -3%;
+            top: 50px;
+            font-size: 35px;
+        }
+
+        #winner-2 {
+            font-size: 35px;
+            left: -10%;
+            top: 50px;
+        }
+
+        #equal {
+            font-size: 35px;
+            left: 10%;
+            top: 50px;
+        }
+
+        .gift {
+            left: 208px;
+            top: 35%;
+        }
+     }
+
     @media (min-width: 800px) and (max-width: 900px) {
         html {
             overflow: hidden;
@@ -521,7 +615,7 @@
                     }
                     
                     else if (opponentScore == 6) {
-                        documente.getElementById("winner-2").style.visibility = "visibile";
+                        document.getElementById("winner-2").style.visibility = "visibile";
                         setTimeout(() => {
                             window.location.reload();
                         }, 6000)
