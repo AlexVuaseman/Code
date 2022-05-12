@@ -284,11 +284,11 @@
         }
 
         #winner-1 {
-            left: -5%;
+            left: 2%;
         }
 
         #winner-2 {
-            left: -10%;
+            left: -5%;
         }
 
         #equal {
@@ -605,15 +605,27 @@
             setTimeout(() => {
                 if (clickedHand[0] && random == 2) {
                     document.getElementById("my-score").innerHTML = yourScore++;
+                    setTimeout(() => {
+                        document.getElementById("hand-1").innerHTML = clickedHand[0];
+                        document.getElementById("hand-2").innerHTML = clickedRightHand[0];
+                    }, 1000)
                 }
 
                 else if (clickedHand[0] && random == 1) {
                     document.getElementById("opponent-score").innerHTML = opponentScore++;
+                    setTimeout(() => {
+                        document.getElementById("hand-1").innerHTML = clickedHand[0];
+                        document.getElementById("hand-2").innerHTML = clickedRightHand[0];
+                    }, 1000)
                 }
 
                 else if (clickedHand[0] && random == 0) {
                     document.getElementById("my-score").innerHTML = yourScore++;
                     document.getElementById("opponent-score").innerHTML = opponentScore++;
+                    setTimeout(() => {
+                        document.getElementById("hand-1").innerHTML = clickedHand[0];
+                        document.getElementById("hand-2").innerHTML = clickedRightHand[0]; 
+                    }, 1000)
                 }
 
                 if (yourScore == 6 || opponentScore == 6) {
@@ -657,15 +669,27 @@
             setTimeout(() => {
                 if (clickedHand[2] && random == 1) {
                     document.getElementById("my-score").innerHTML = yourScore++;
+                    setTimeout(() => {
+                        document.getElementById("hand-1").innerHTML = clickedHand[0];
+                        document.getElementById("hand-2").innerHTML = clickedRightHand[0];
+                    }, 1000)
                 }
 
                 else if (clickedHand[2] && random == 0) {
                     document.getElementById("opponent-score").innerHTML = opponentScore++;
+                    setTimeout(() => {
+                        document.getElementById("hand-1").innerHTML = clickedHand[0];
+                        document.getElementById("hand-2").innerHTML = clickedRightHand[0];
+                    }, 1000)
                 }
 
                 else if (clickedHand[2] && random == 2) {
                     document.getElementById("my-score").innerHTML = yourScore++;
                     document.getElementById("opponent-score").innerHTML = opponentScore++;
+                    setTimeout(() => {
+                        document.getElementById("hand-1").innerHTML = clickedHand[0];
+                        document.getElementById("hand-2").innerHTML = clickedRightHand[0];
+                    }, 1000)
                 }
 
                 if (yourScore == 6 || opponentScore ==6) {
@@ -712,15 +736,27 @@
             setTimeout(() => {
                 if (clickedHand[1] && random == 0) {
                     document.getElementById("my-score").innerHTML = yourScore++;
+                    setTimeout(() => {
+                        document.getElementById("hand-1").innerHTML = clickedHand[0];
+                        document.getElementById("hand-2").innerHTML = clickedRightHand[0];
+                    }, 1000)
                 }
 
                 else if (clickedHand[1] && random == 2) {
                     document.getElementById("opponent-score").innerHTML = opponentScore++;
+                    setTimeout(() => {
+                        document.getElementById("hand-1").innerHTML = clickedHand[0];
+                        document.getElementById("hand-2").innerHTML = clickedRightHand[0];
+                    }, 1000)
                 }
 
                 else if (clickedHand[1] && random == 1) {
                     document.getElementById("my-score").innerHTML = yourScore++;
                     document.getElementById("opponent-score").innerHTML = opponentScore++;
+                    setTimeout(() => {
+                        document.getElementById("hand-1").innerHTML = clickedHand[0];
+                        document.getElementById("hand-2").innerHTML = clickedRightHand[0];
+                    }, 1000)
 
                 }
 
@@ -741,7 +777,7 @@
 
                     else if (yourScore == 6 && opponentScore == 6) {
                         document.getElementById("equal").style.visibility = "visible";
-                        setTiemout(() => {
+                        setTimeout(() => {
                             window.location.reload();
                         }, 6000)
                     } 
@@ -768,22 +804,42 @@
             if (position == random) {
                 document.getElementById("my-score").innerHTML = yourScore++;
                 document.getElementById("opponent-score").innerHTML = opponentScore++;
+                setTimeout(() => {
+                    document.getElementById("hand-1").innerHTML = clickedHand[0];
+                    document.getElementById("hand-2").innerHTML = clickedRightHand[0];
+                }, 1000)
             }
 
             else if (position == 0 && random == 2) {
                 document.getElementById("my-score").innerHTML = yourScore++;
+                setTimeout(() => {
+                    document.getElementById("hand-1").innerHTML = clickedHand[0];
+                    document.getElementById("hand-2").innerHTML = clickedRightHand[0];
+                }, 1000)
             }
 
             else if (position == 1 && random == 0) {
                 document.getElementById("my-score").innerHTML = yourScore++;
+                setTimeout(() => {
+                    document.getElementById("hand-1").innerHTML = clickedHand[0];
+                    document.getElementById("hand-2").innerHTML = clickedRightHand[0];
+                }, 1000)
             }
 
             else if (position == 2 && random == 1) {
                 document.getElementById("my-score").innerHTML = yourScore++;
+                setTimeout(() => {
+                    document.getElementById("hand-1").innerHTML = clickedHand[0];
+                    document.getElementById("hand-2").innerHTML = clickedRightHand[0];
+                }, 1000)
             }
 
             else {
                 document.getElementById("opponent-score").innerHTML = opponentScore++;
+                setTimeout(() => {
+                    document.getElementById("hand-1").innerHTML = clickedHand[0];
+                    document.getElementById("hand-2").innerHTML = clickedRightHand[0];
+                }, 1000)
             }
 
             if (yourScore == 6 || opponentScore == 6) {
