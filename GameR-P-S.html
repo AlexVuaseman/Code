@@ -12,8 +12,14 @@
     <div class="text">
         <span id="winner-1">You are the winner !</span>
         <span id="winner-2">Your opponent is the winner !</span>
-        <span id="equal">Draw !</span>
+        <span id="equal">We are the winner !</span>
     </div>
+
+    <div class="name">
+        <span id="you">YOU</span>
+        <span id="opponent">OPPONENT</span>
+    </div>
+
     <div class="gift">
         <span id="my-score">0</span>
         <span id="opponent-score">0</span>
@@ -137,6 +143,14 @@
         font-size: 40px;
     }
 
+    #my-score {
+        visibility: hidden;
+    }
+
+    #opponent-score {
+        visibility: hidden;
+    }
+
     #your-score {
         margin-right: 300px;
     }
@@ -169,6 +183,21 @@
         left: 12%;   
        
     }
+
+    .name {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-left: 600px;
+        position: relative;
+        top: 100px;
+    }
+
+    #opponent {
+        margin-right: 550px;
+    }
+
+
 
     @keyframes shakeRight {
         0% {
@@ -263,12 +292,22 @@
         }
 
         #equal {
-            left: 8%;
+            left: 2%;
         }
 
         .gift {
            left: 18px;
            top: 15%;
+       }
+
+       .name {
+           margin-left: 100px;
+           position: relative;
+           top: 70px;
+       }
+
+       #opponent {
+           margin-right: 50px;
        }
 
     }
@@ -339,12 +378,22 @@
         }
 
         #equal {
-            left: 8%;
+            left: 4%;
         }
 
         .gift {
            left: 34px;
            top: 20%;
+       }
+
+       .name {
+           margin-left: 100px;
+           position: relative;
+           top: 80px;
+       }
+
+       #opponent {
+           margin-left: 150px;
        }
 
     }
@@ -433,13 +482,21 @@
 
         #equal {
             font-size: 35px;
-            left: 10%;
+            left: -1%;
             top: 50px;
         }
 
         .gift {
             left: 208px;
             top: 35%;
+        }
+
+        .name {
+            margin-left: 200px;
+        }
+
+        #opponent {
+            margin-left: 280px;
         }
      }
 
@@ -490,7 +547,7 @@
    
     var start = document.getElementById("start");
 
-    
+    console.log(document.querySelector(".gift span"))
 
     function StartReset() {
         start.style.visibility = "hidden";
@@ -498,6 +555,9 @@
         document.getElementById("paper").style.visibility = "visible";
         document.getElementById("scissors").style.visibility = "visible";
         document.getElementById("reset").style.visibility = "visible";
+        document.getElementById("my-score").style.visibility = "visible";
+        document.getElementById("opponent-score").style.visibility = "visible";
+        
 
     }
 
@@ -508,6 +568,8 @@
             document.getElementById("paper").style.visibility = 'visible';
             document.getElementById("scissors").style.visibility = 'visible';
             document.getElementById("reset").style.visibility = 'visible';
+            document.getElementById("my-score").style.visibility = "visible";
+            document.getElementById("opponent-score").style.visibility = "visible";
         }
     })
 
@@ -703,62 +765,45 @@
         }, 5000);
 
         setTimeout(() => {
-          if (yourScore != 6 || opponentScore != 6) {  
-            if (random == position) {
+            if (position == random) {
                 document.getElementById("my-score").innerHTML = yourScore++;
                 document.getElementById("opponent-score").innerHTML = opponentScore++;
-                
             }
 
             else if (position == 0 && random == 2) {
-                
                 document.getElementById("my-score").innerHTML = yourScore++;
-                
             }
 
             else if (position == 1 && random == 0) {
-                
-                
-                document.getElementById("my-score").innerHTML = yourScore++;                 
-            }
-
-            else if (position == 2 && random == 1) {
-                
-                
                 document.getElementById("my-score").innerHTML = yourScore++;
             }
 
             else {
-               
                 document.getElementById("opponent-score").innerHTML = opponentScore++;
             }
 
-          }
+            if (yourScore == 6 || opponentScore == 6) {
+                if (yourScore == 6) {
+                    document.getElementById("winner-1").style.visibility = "visible";
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 6000)
+                }
 
-          else if (yourScore == 6 || opponentScore == 6) {
-              if (yourScore == 6) {
-                  document.getElementById("winner-1").style.visibility = "visible";
-                  setTimeout(function() {
-                  window.location.reload();
-              }, 6000)
-            }
-              
-              else if (opponentScore == 6) {
-                  document.getElementById("winner-2").style.visibility = "visible";
-                  setTimeout(function() {
-                  window.location.reload();
-              }, 6000)
-            }
+                else if (opponentScore == 6) {
+                    document.getElementById("winner-2").style.visibility = "visible";
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 6000)
+                }
 
-            else if (opponentScore == 6 && yourScore == 6) {
-                document.getElementById("equal").style.visibility = "visible";
-                setTimeout(function() {
-                    window.location.reload();
-                }, 6000)
+                else if (yourScore == 6 && opponentScore == 6) {
+                    document.getElementById("equal").style.visibility = "visbile";
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 6000)
+                }
             }
-
-              
-          }
 
         }, 5500);
     }
